@@ -7,22 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Login extends AppCompatActivity {
+public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Button entrar;
+        Button voltar;
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_home);
 
-        entrar = (Button) findViewById(R.id.button_entrar);
+        voltar =(Button) findViewById(R.id.button_voltar);
 
-        entrar.setOnClickListener(new View.OnClickListener() {
+        voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivities(new Intent[]{new Intent(Login.this, Home.class)});
+                startActivities(new Intent[]{new Intent(Home.this, Login.class)});
             }
         });
 
