@@ -1,18 +1,25 @@
 package com.example.projetofinal;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
+import java.time.Instant;
 
 import java.util.ArrayList;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> {
     Context context;
     ArrayList<String> arrayList;
+    OnItemClickListener onItemClickListener;
 
     public ImageAdapter (Context context, ArrayList<String> arrayList) {
         this.context = context;
@@ -22,19 +29,41 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(context).inflate(R.layout.image_list_item, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Glide.with(context).load(arrayList.get(position)).into(holder.imageView);
+        holder.itemView.setOnClickListener(v -> onItemClickListener.onClick(holder.imageView, arrayList.get(position)));
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return arrayList.size();
     }
 
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imageView = ImageView.findViewById(R.id.list_item_image);
+        }
+    }
+
+    public void setOnItemClickListener(View.OnClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         public ViewHolder(@NonNull View itemView) {
