@@ -25,7 +25,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/background"
         app:layout_constraintTop_toTopOf="@+id/background"
-        app:srcCompat="@drawable/meclist_rectangle" />
+        app:srcCompat="@drawable/meclist_rectangle"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/appHeader"
@@ -91,7 +92,7 @@
         app:boxBackgroundMode="filled"
         app:boxStrokeColor="#424242"
         app:boxStrokeWidth="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/button_entrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,6 +114,8 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#D9D9D9"
+        android:drawableStart="@drawable/baseline_lock_24"
+        android:drawableBottom="@drawable/baseline_lock_24"
         android:fontFamily="@font/josefin_sans"
         android:insetTop="0dp"
         android:insetBottom="0dp"
